@@ -9,6 +9,11 @@ ML-Algorithms-From-Scratch/
 |-- simple_linear_regression.py
 |-- multiple_linear_regression.py
 |-- logistic_regression.py
+|   |-- __init__.py
+|   |-- binary_logistic_regression.py
+|   |-- main_binary.py
+|   |-- main_multiclass.py
+|   |-- multiclass_logistic_regression.py
 |-- decision_tree.py
 |-- random_forest.py
 |-- kmeans.py
@@ -19,6 +24,7 @@ ML-Algorithms-From-Scratch/
 |   |-- cnn.py
 |   |-- rnn.py
 |-- utils/
+|   |-- __init__.py
 |   |-- data_processing.py
 |   |-- metrics.py
 |   |-- visualizations.py
@@ -30,32 +36,42 @@ ML-Algorithms-From-Scratch/
 ## Example Algorithms to Include
 
 ### Machine Learning
+
 1. **Linear Regression**
+
    - Implementation of simple and multiple linear regression using the least squares method.
 
 2. **Logistic Regression**
+
    - Binary and multi-class logistic regression with gradient descent optimization.
 
 3. **Decision Tree**
+
    - Implementation of a CART-based decision tree for regression and classification.
 
 4. **Random Forest**
+
    - Building an ensemble of decision trees using bagging.
 
 5. **K-Means Clustering**
    - Unsupervised learning algorithm to partition data into k clusters.
 
 ### Neural Networks
+
 1. **Perceptron**
+
    - Implementation of a single-layer perceptron for binary classification.
 
 2. **Feedforward Neural Network**
+
    - Fully connected neural network with multiple layers.
 
 3. **Backpropagation**
+
    - Gradient descent-based optimization for training feedforward networks.
 
 4. **Convolutional Neural Network (CNN)**
+
    - Implementation of basic CNN layers: convolution, pooling, and fully connected layers.
 
 5. **Recurrent Neural Network (RNN)**
@@ -64,9 +80,11 @@ ML-Algorithms-From-Scratch/
 ## Utilities
 
 1. **Data Processing**
+
    - Feature scaling, one-hot encoding, and train-test splitting.
 
 2. **Metrics**
+
    - Functions for calculating accuracy, precision, recall, F1 score, mean squared error, etc.
 
 3. **Visualizations**
@@ -75,16 +93,19 @@ ML-Algorithms-From-Scratch/
 ## How to Run
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/ML-Algorithms-From-Scratch.git
 ```
 
 2. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Run an algorithm, e.g., linear regression:
+
 ```bash
 python linear_regression.py
 ```
