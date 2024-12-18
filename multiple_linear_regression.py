@@ -13,3 +13,11 @@ y_pred = X @ beta
 
 print(f"Coefficients: {beta}")
 print(f"Predicted values: {y_pred}")
+
+mse = np.mean((y - y_pred) ** 2)
+print("Mean Squared Error:", mse)
+# R-squared
+ss_total = np.sum((y - np.mean(y)) ** 2)
+ss_residual = np.sum((y - y_pred) ** 2)
+r2_score = 1 - (ss_residual / ss_total)
+print("R² Score:", r2_score)
