@@ -6,7 +6,8 @@ This repository consists of implementations of machine learning algorithms and n
 
 ```
 ML-Algorithms-From-Scratch/
-|-- linear_regression.py
+|-- simple_linear_regression.py
+|-- multiple_linear_regression.py
 |-- logistic_regression.py
 |-- decision_tree.py
 |-- random_forest.py
