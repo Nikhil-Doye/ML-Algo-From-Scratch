@@ -1,23 +1,28 @@
+import pandas as pd
 import numpy as np
-X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]])
-y = np.array([6, 8, 9, 11])
+from sklearn.datasets import fetch_california_housing
 
-# Adding intercept
-X = np.c_[np.ones(X.shape[0]), X]
+# Load the California Housing Dataset
+housing = fetch_california_housing()
+df = pd.DataFrame(housing.data, columns=housing.feature_names)
+df['MedHouseVal'] = housing.target  # Adding target variable
 
-# Coefficients
-beta = np.linalg.inv(X.T @ X) @ X.T @ y
+# Target variable
+y = df['MedHouseVal'].values
+
+X = df.drop(columns=['MedHouseVal']).values  # Independent variables
+n_samples, n_features = X.shape
+
+# Add a column of ones to X for the intercept term
+X_with_intercept = np.hstack([np.ones((n_samples, 1)), X])
+
+# Solve for coefficients using the Normal Equation: B = (X^T X)^(-1) X^T y
+B = np.linalg.inv(X_with_intercept.T @ X_with_intercept) @ X_with_intercept.T @ y
 
 # Predictions
-y_pred = X @ beta
+y_pred_multiple = X_with_intercept @ B
 
-print(f"Coefficients: {beta}")
-print(f"Predicted values: {y_pred}")
-
-mse = np.mean((y - y_pred) ** 2)
-print("Mean Squared Error:", mse)
-# R-squared
-ss_total = np.sum((y - np.mean(y)) ** 2)
-ss_residual = np.sum((y - y_pred) ** 2)
-r2_score = 1 - (ss_residual / ss_total)
-print("R² Score:", r2_score)
+# Output Results
+print("Multiple Linear Regression Results:")
+print("Coefficients (including intercept):")
+print(B)

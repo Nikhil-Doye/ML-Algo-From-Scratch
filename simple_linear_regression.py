@@ -1,24 +1,30 @@
+import pandas as pd
 import numpy as np
+from sklearn.datasets import fetch_california_housing
 
-x = np.array([1, 2, 3, 4, 5])  # Independent variable
-y = np.array([2, 4, 5, 4, 5])  # Dependent variable
+# Load the California Housing Dataset
+housing = fetch_california_housing()
+df = pd.DataFrame(housing.data, columns=housing.feature_names)
+df['MedHouseVal'] = housing.target  # Adding target variable
 
-# Number of observations
-n = len(x)
+# Target variable
+y = df['MedHouseVal'].values
 
-# Calculating slope (b1) and intercept (b0)
-mean_x = np.mean(x)
+# Predicting 'MedHouseVal' using 'MedInc' (Median Income)
+x_simple = df['MedInc'].values
+
+# Mean of x and y
+mean_x = np.mean(x_simple)
 mean_y = np.mean(y)
 
-numerator = np.sum((x - mean_x) * (y - mean_y))
-denominator = np.sum((x - mean_x) ** 2)
-
-b1 = numerator / denominator
+# Calculate slope (b1) and intercept (b0)
+b1 = np.sum((x_simple - mean_x) * (y - mean_y)) / np.sum((x_simple - mean_x) ** 2)
 b0 = mean_y - b1 * mean_x
 
 # Predictions
-y_pred = b0 + b1 * x
+y_pred_simple = b0 + b1 * x_simple
 
-print(f"Slope (b1): {b1}")
-print(f"Intercept (b0): {b0}")
-print(f"Predicted values: {y_pred}")
+# Output Results
+print("Simple Linear Regression Results:")
+print(f"Slope (b1): {b1:.4f}")
+print(f"Intercept (b0): {b0:.4f}")
