@@ -40,10 +40,12 @@ ML-Algorithms-From-Scratch/
 1. **Linear Regression**
 
    - Implementation of simple and multiple linear regression using the least squares method.
+   - Read Article[https://medium.com/@doye.n/a-beginners-guide-to-linear-regression-from-theory-to-implementation-from-scratch-f51f172badc6]
 
 2. **Logistic Regression**
 
    - Binary and multi-class logistic regression with gradient descent optimization.
+   - Read Article[https://medium.com/@doye.n/a-beginners-guide-to-logistic-regression-from-theory-to-implementation-from-scratch-1df395d11180]
 
 3. **Decision Tree**
 
